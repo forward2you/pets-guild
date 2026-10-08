@@ -25,6 +25,14 @@ npm run test:e2e
 npx playwright install chromium
 ```
 
+## GitHub Pages 部署
+
+项目通过 GitHub Actions 构建为静态站点，并使用 GitHub Pages 官方 artifact deployment 发布，不需要额外的部署仓库或 `gh-pages` 分支。
+
+首次部署前，在仓库的 **Settings > Pages > Build and deployment** 中将 **Source** 设置为 **GitHub Actions**。之后每次推送到 `main` 都会先执行格式检查、Lint、类型检查、单元测试和端到端测试，通过后自动发布。也可以在 Actions 页面手动运行 **Quality and GitHub Pages** 工作流。
+
+生产地址为 <https://forward2you.github.io/pets-guild/>。
+
 ## 规格驱动开发
 
 开发从 [PROJECT_PLAN.md](./PROJECT_PLAN.md) 开始。需求、技术设计和任务清单位于 `docs/sdd/001-pet-companion-mvp`。任何产品行为变更都应先更新规格，再更新实现和测试。
